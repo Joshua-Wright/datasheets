@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat" style="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+
+    <title>
+    STM32F103C8T6_Hello - Using low cost Blue Pill (STM32F103C8T6) boards...
+ | Mbed</title>
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="user-scalable=yes,width=device-width,initial-scale=0.9">
+
+    
+
+
+<!-- Page-hiding snippet -->
+<style>.async-hide { opacity: 0 !important} </style>
+<script async="" src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/gtm.js"></script><script async="" src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/analytics.js"></script><script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-WXMLD4S':true});</script>
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1447836-8');
+ga('require', 'GTM-WXMLD4S')
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=SMYNPwM0ICsV00c1ZHETqQ&gtm_preview=env-2&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6FZ495');</script>
+
+
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:971746,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script><script async="" src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/hotjar-971746.js"></script>
+
+
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://os.mbed.com/static/img/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://os.mbed.com/static/img/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://os.mbed.com/static/img/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://os.mbed.com/static/img/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://os.mbed.com/static/img/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://os.mbed.com/static/img/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://os.mbed.com/static/img/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://os.mbed.com/static/img/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://os.mbed.com/static/img/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://os.mbed.com/static/img/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://os.mbed.com/static/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://os.mbed.com/static/img/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://os.mbed.com/static/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://os.mbed.com/static/img/favicons/manifest.json">
+<link rel="shortcut icon" href="https://os.mbed.com/static/img/favicon.ico?">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/static/img/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/css.css">
+<link rel="stylesheet" href="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/all.css">
+
+<link rel="stylesheet" href="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/output.css" type="text/css">
+
+
+    
+    
+
+    <link rel="stylesheet" type="text/css" href="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/legacy-main.css">
+    <script type="text/javascript" src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/legacy-bundle.js"></script>
+
+    <script src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/output.js"></script>
+    <script type="text/javascript">
+        var MTIProjectId='531df303-da6d-4e1e-934d-ec3ecdc164a9';
+        (function() {
+            var mtiTracking = document.createElement('script');
+            mtiTracking.type='text/javascript';
+            mtiTracking.async='true';
+            mtiTracking.src="/static/js/mtiFontTrackingCode.js";
+            (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
+        })();
+    </script><script type="text/javascript" async="" src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/mtiFontTrackingCode.js"></script>
+
+    
+    
+    <!--[if IE]><script type="text/javascript" src="/static/js/excanvas.js"></script><![endif]-->
+    <meta name="description" content="Using low cost Blue Pill (STM32F103C8T6) boards with mbed.">
+    <link rel="stylesheet" type="text/css" href="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/hgstyle.css">
+
+    
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6FZ495&gtm_auth=3a8Vwkp5SsDiYq6tYR1ObQ&gtm_preview=env-6&gtm_cookies_win=x"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    
+
+
+
+
+
+
+
+<div class="mbed-nav">
+    <div class="mbed-nav__mobile-menu-control">
+        <i class="mbed-nav__mobile-menu-control-open fas fa-bars fa-fw"></i>
+        <i class="mbed-nav__mobile-menu-control-close fas fa-times is-hidden fa-fw"></i>
+        <i class="mbed-nav__mobile-menu-control-back fas fa-angle-left is-hidden fa-fw"></i>
+    </div>
+    <div class="mbed-nav__logo">
+        <a href="https://www.mbed.com/">
+            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#logo"></use></svg>
+        </a>
+    </div>
+    <div class="mbed-nav__menu">
+
+        <!-- Main menu -->
+        <nav class="mbed-nav__main-menu">
+            <ul class="mbed-nav__dropdown-menu">
+                <li class="has-dropdown">
+                    Overview
+
+                    <div class="mbed-nav__dropdown-menu-content">
+
+                        <!-- Overview dropdown menu -->
+                        <div class="mbed-nav__overview-menu">
+                            <section>
+                                <p>Operating systems</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/platform/mbed-os/" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_os"></use></svg>
+                                            <div>
+                                                <p>Mbed OS</p>
+                                                <p>The open source OS for Cortex-M devices</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/linux-os" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_linux"></use></svg>
+                                            <div>
+                                                <p>Mbed Linux OS</p>
+                                                <p>Run IoT applications on Cortex-A devices</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <p>Development tools</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://os.mbed.com/studio" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_studio"></use></svg>
+                                            <div>
+                                                <p>Mbed Studio</p>
+                                                <p>Download the desktop IDE for Mbed OS</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/docs/mbed-os/latest/quick-start/online-with-the-online-compiler.html" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_online_compiler"></use></svg>
+                                            <div>
+                                                <p>Mbed Online Compiler</p>
+                                                <p>Start coding immediately in the browser IDE</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_cli"></use></svg>
+                                            <div>
+                                                <p>Mbed CLI</p>
+                                                <p>Command line access to Mbed tools and services</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <p>Security and Connectivity</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/technologies/security/mbed-tls/" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_tls_crypto"></use></svg>
+                                            <div>
+                                                <p>Mbed TLS and Mbed Crypto</p>
+                                                <p>Industry standard TLS stack and crypto library</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/technologies/connectivity" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#connectivity"></use></svg>
+                                            <div>
+                                                <p>Connectivity</p>
+                                                <p>BLE, WiFi, Cellular, LoRaWAN and more</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <p>Ecosystem</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/partners/our-partners" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#our_partners"></use></svg>
+                                            <div>
+                                                <p>Our partners</p>
+                                                <p>Dozens of leading companies trust Mbed OS</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/partners/become-partner/" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#become_a_partner"></use></svg>
+                                            <div>
+                                                <p>Become a partner</p>
+                                                <p>Bring your services to over 450,000 developers</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    Hardware
+
+                    <!-- Hardware dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__hardware-dropdown">
+                            <ul class="mbed-nav__hardware-menu">
+                                <li>
+                                    <a href="https://os.mbed.com/platforms" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#boards"></use></svg>
+                                        <div>
+                                            <p>Boards</p>
+                                            <p>Build your Mbed projects with development boards for Arm Cortex processors and MCUs</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/modules" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#modules"></use></svg>
+                                        <div>
+                                            <p>Modules</p>
+                                            <p>Modules include a MCU, connectivity and onboard memory, making them ideal for designing IoT products for mass production</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/components" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#components"></use></svg>
+                                        <div>
+                                            <p>Components</p>
+                                            <p>The component database hosts libraries for different sensors, actuators, radios, inputs, middleware and IoT services</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/hardware" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#hardware_overview"></use></svg>
+                                        <div>
+                                            <p>Hardware overview &amp; Mbed Enabled</p>
+                                            <p>Learn about hardware support for Mbed, as well as the Mbed Enabled program, which identifies Mbed compatible products</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-os/latest/porting/arm-mbed-hdk.html" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_hdk"></use></svg>
+                                        <div>
+                                            <p>Mbed HDK</p>
+                                            <p>Reference designs, schematics and board layouts to develop production hardware and Mbed-compatible development boards</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+                <li><a href="https://os.mbed.com/code">Code</a></li>
+                <li class="has-dropdown">
+                    Documentation
+
+                    <!-- Documentation dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__documentation-dropdown">
+                            <ul class="mbed-nav__documentation-menu">
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-os/">Mbed OS</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-studio/">Mbed Studio</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-cordio/">Mbed Cordio</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    Case studies
+
+                    <!-- Case studies dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__case-studies-dropdown">
+                            <ul class="mbed-nav__case-studies-menu">
+                                <li>
+                                    <a href="https://www.mbed.com/built-with-mbed">Products built with Mbed</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/register_design">Submit a product</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    Support
+
+                    <!-- Support dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__support-dropdown">
+                            <ul class="mbed-nav__support-menu">
+                                <li>
+                                    <a href="https://forums.mbed.com/">Forum</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/support">Report a problem</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/commercial-support-pricing">Commercial support and pricing</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.mbed.com/contact">Contact sales</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://os.mbed.com/blog">Blog</a>
+                </li>
+                <li>
+                    <a href="https://www.mbed.com/en/about-mbed/events">Events</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="mbed-nav__user-controls">
+        <div class="mbed-nav__user-controls-top">
+            <div class="mbed-nav__search">
+                <form id="mbed-nav__search-box" class="is-hidden" action="https://os.mbed.com/search" method="GET">
+                    <div class="mbed-nav__search-box">
+                        <input type="search" name="q" placeholder="Search...">
+                        <button type="submit">
+                            <svg class="stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.svg#search"></use></svg>
+                        </button>
+                    </div>
+                </form>
+                <i class="mbed-nav__search-close fas fa-times is-hidden"></i>
+                <svg class="mbed-nav__search-open stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.svg#search"></use></svg>
+            </div>
+            <a class="mbed-nav__button" href="https://os.mbed.com/ide/" target="_blank">
+                Compiler
+            </a>
+
+            
+                
+                <nav class="mbed-nav__logged-out-nav">
+                    <ul class="mbed-nav__dropdown-menu">
+                        <li>
+                            <svg class="stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.svg#profile"></use></svg>
+
+                            <!-- Logged out dropdown menu -->
+                            <div class="mbed-nav__dropdown-menu-content">
+                                <div class="mbed-nav__logged-out-dropdown">
+                                    <ul class="mbed-nav__logged-out-menu">
+                                        <li><a href="https://os.mbed.com/account/login/?next=/users/hudakz/code/STM32F103C8T6_Hello/">Log in or Sign up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                
+            
+        </div>
+        <div class="mbed-nav__user-controls-bottom">
+
+            <!-- Mbed and Pelion menu -->
+            <nav class="mbed-nav__pelion-nav">
+                <ul class="mbed-nav__dropdown-menu">
+                    <li class="has-dropdown">
+                        <div class="mbed-nav__pelion-icon-link">
+                            <svg class="stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.svg#cloud"></use></svg>
+                            Mbed + Pelion IoT Platform
+                        </div>
+
+                        <!-- Mbed and Pelion dropdown -->
+                        <div class="mbed-nav__dropdown-menu-content">
+                            <div class="mbed-nav__pelion-menu">
+
+                                <!-- Left column -->
+                                <ul class="mbed-nav__pelion-menu-left">
+                                    <li>
+                                        <a href="https://os.mbed.com/pelion-free-tier" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_pelion_overview"></use></svg>
+                                            <div>
+                                                <p>Mbed + Pelion Overview</p>
+                                                <p>Your IoT project starts here</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="mbed-nav__icon-menu">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#resources"></use></svg>
+                                            <div>
+                                                <p>Resources</p>
+                                                <ul>
+                                                    <li><a href="https://www.pelion.com/">Pelion official website</a></li>
+                                                    <li><a href="https://www.pelion.com/docs">Documentation</a></li>
+                                                    <li><a href="https://forums.mbed.com/c/pelion">Pelion forum</a></li>
+                                                    <li><a href="https://www.arm.com/support/contact-support/pelion-iot-support">Pelion support</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- Right column -->
+                                <ul class="mbed-nav__pelion-menu-right">
+                                    <li>
+                                        <div class="mbed-nav__icon-menu">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#connectivity_management"></use></svg>
+                                            <div>
+                                                <p>Connectivity Management (Stream IoTx)</p>
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://stream.iot-x.com/" target="_blank">
+                                                            Connectivity Management Console
+                                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#external_link"></use></svg>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="mbed-nav__icon-menu">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#data_management"></use></svg>
+                                            <div>
+                                                <p>Data Management (Treasure Data)</p>
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://console.treasuredata.com/" target="_blank">
+                                                            Data Management Console
+                                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#external_link"></use></svg>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://support.treasuredata.com/hc/en-us/articles/360012567313-Data-Ingestion-from-Mbed-OS-HTTP-over-Wi-Fi-">Send device data to Treasure Data</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="mbed-nav__icon-menu">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#device_management"></use></svg>
+                                            <div>
+                                                <p>Device Management</p>
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://portal.mbedcloud.com/" target="_blank">
+                                                            Device Management Console
+                                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#external_link"></use></svg>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://os.mbed.com/guides/connect-device-to-pelion">Connect a device</a></li>
+                                                    <li><a href="https://os.mbed.com/guides/pelion-firmware-update">Update a device</a></li>
+                                                    
+                                                    <li><a href="https://os.mbed.com/pelion-free-tier">Get free access</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="mbed-nav__spacer"></div>
+</div>
+<div class="mbed-nav__mobile-menu-cover is-hidden">
+    <div class="mbed-nav__mobile-menu">
+
+        <div id="mbed-nav__main-menu-mobile">
+            <div class="mbed-nav__user-controls-mobile">
+                <div class="mbed-nav__user-controls-top-mobile">
+                    <form action="https://os.mbed.com/search" method="GET">
+                        <div class="mbed-nav__search-box mbed-nav__search-box--light">
+                            <input type="search" name="q" placeholder="Search...">
+                            <button type="submit">
+                                <svg class="stroke-dark-grey"><use xlink:href="/static/img/mbed_nav_spritesheet.svg#search"></use></svg>
+                            </button>
+                        </div>
+                    </form>
+                    
+                        
+                        <a href="https://os.mbed.com/account/login/?next=/users/hudakz/code/STM32F103C8T6_Hello/">Log in or Sign up</a>
+                        
+                    
+                </div>
+                <div class="mbed-nav__user-controls-bottom-mobile">
+                    <a class="mbed-nav__pelion-menu-mobile-open mbed-nav__icon-link fill-dark-grey">
+                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#cloud_large"></use></svg>
+                        <p>Mbed + Pelion IoT Platform</p>
+                    </a>
+                </div>
+            </div>
+
+            <ul class="mbed-nav__side-menu">
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="overview-accordion">
+                    <label for="overview-accordion">Overview</label>
+                    <div class="accordion_content">
+                        <ul class="overview-menu-mobile">
+                            <li>
+                                <p>Operating systems</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/platform/mbed-os/" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_os"></use></svg>
+                                            <p>Mbed OS</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/linux-os" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_linux"></use></svg>
+                                            <p>Mbed Linux OS</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Development tools</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://os.mbed.com/studio" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_studio"></use></svg>
+                                            <p>Mbed Studio</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/docs/mbed-os/latest/quick-start/online-with-the-online-compiler.html" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_online_compiler"></use></svg>
+                                            <p>Mbed Online Compiler</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_cli"></use></svg>
+                                            <p>Mbed CLI</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Security and connectivity</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/technologies/security/mbed-tls/" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_tls_crypto"></use></svg>
+                                            <p>Mbed TLS and Mbed Crypto</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/technologies/connectivity" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#connectivity"></use></svg>
+                                            <p>Connectivity</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Ecosystem</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/partners/our-partners" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#our_partners"></use></svg>
+                                            <p>Our partners</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.mbed.com/en/partners/become-partner/" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#become_a_partner"></use></svg>
+                                            <p>Become a partner</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="hardware-accordion">
+                    <label for="hardware-accordion">Hardware</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li>
+                                <a href="https://os.mbed.com/platforms" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#boards"></use></svg>
+                                    <p>Boards</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/modules" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#modules"></use></svg>
+                                    <p>Modules</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/components" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#components"></use></svg>
+                                    <p>Components</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/hardware" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#hardware_overview"></use></svg>
+                                    <p>Hardware overview &amp; Mbed Enabled</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/docs/mbed-os/latest/porting/arm-mbed-hdk.html" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_hdk"></use></svg>
+                                    <p>Mbed HDK</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="https://os.mbed.com/code">Code</a></li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="documentation-accordion">
+                    <label for="documentation-accordion">Documentation</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://os.mbed.com/docs/mbed-os/">Mbed OS</a></li>
+                            <li><a href="https://os.mbed.com/docs/linux-os/">Mbed Linux OS</a></li>
+                            <li><a href="https://os.mbed.com/docs/mbed-cordio/">Mbed Cordio</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="case-studies-accordion">
+                    <label for="case-studies-accordion">Case studies</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://www.mbed.com/built-with-mbed">Products built with Mbed</a></li>
+                            <li><a href="https://os.mbed.com/register_design">Submit a product</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="support-accordion">
+                    <label for="support-accordion">Support</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://forums.mbed.com/">Forum</a></li>
+                            <li><a href="https://os.mbed.com/support">Report a problem</a></li>
+                            <li><a href="https://os.mbed.com/commercial-support-pricing">Commercial support and pricing</a></li>
+                            <li><a href="https://www.mbed.com/contact">Contact sales</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="https://os.mbed.com/blog">Blog</a></li>
+                <li><a href="https://www.mbed.com/en/about-mbed/events">Events</a></li>
+            </ul>
+        </div>
+
+        <div id="mbed-nav__pelion-menu-mobile" class="mbed-nav__sub-menu is-hidden">
+            <p>Mbed + Pelion IoT Platform</p>
+            <ul class="mbed-nav__side-menu">
+                <li>
+                    <a href="https://os.mbed.com/pelion-free-tier" class="mbed-nav__icon-link">
+                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#mbed_pelion_overview"></use></svg>
+                        <p>Mbed + Pelion Overview</p>
+                    </a>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="resources-accordion">
+                    <label for="resources-accordion">
+                        <div class="mbed-nav__icon-link">
+                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#resources"></use></svg>
+                            <p>Resources</p>
+                        </div>
+                    </label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://www.pelion.com/">Pelion official website</a></li>
+                            <li><a href="https://www.pelion.com/docs">Documentation</a></li>
+                            <li><a href="https://forums.mbed.com/c/pelion">Pelion forum</a></li>
+                            <li><a href="https://www.arm.com/support/contact-support/pelion-iot-support">Pelion support</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="connectivity-management-accordion">
+                    <label for="connectivity-management-accordion">
+                        <div class="mbed-nav__icon-link">
+                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#connectivity_management"></use></svg>
+                            <p>Connectivity Management (Stream IoTx)</p>
+                        </div>
+                    </label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://stream.iot-x.com/">Connectivity Management Console</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="data-management-accordion">
+                    <label for="data-management-accordion">
+                        <div class="mbed-nav__icon-link">
+                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#data_management"></use></svg>
+                            <p>Data Management (Treasure&nbsp;Data)</p>
+                        </div>
+                    </label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://console.treasuredata.com/">Data Management Console</a></li>
+                            <li><a href="https://support.treasuredata.com/hc/en-us/articles/360012567313-Data-Ingestion-from-Mbed-OS-HTTP-over-Wi-Fi-">Send device data to Treasure Data</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="device-management-accordion">
+                    <label for="device-management-accordion">
+                        <div class="mbed-nav__icon-link">
+                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.svg#device_management"></use></svg>
+                            <p>Device Management</p>
+                        </div>
+                    </label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://portal.mbedcloud.com/">Device Management Console</a></li>
+                            <li><a href="https://os.mbed.com/guides/connect-device-to-pelion">Connect a device</a></li>
+                            <li><a href="https://os.mbed.com/guides/pelion-firmware-update">Update a device</a></li>
+                            <li><a href="https://os.mbed.com/pelion-free-tier">Get free access</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        
+    </div>
+</div>
+<script src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/mbed-nav-vertical-menu.js"></script>
+
+
+
+
+    <div id="main-content">
+        
+            <div class="row">
+                
+
+            </div>
+        
+
+        
+
+        
+
+        
+        <div>
+            <div class="row" id="top">
+                <div class="six columns">
+                    <div class="breadcrumbs">
+                        
+    
+    <a href="https://os.mbed.com/activity/">Users</a> » <a href="https://os.mbed.com/users/hudakz/">hudakz</a>
+    
+    
+ 
+        » <a href="https://os.mbed.com/users/hudakz/code/">Code</a>
+
+        
+        » <a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/">STM32F103C8T6_Hello</a>
+
+
+                    </div>
+                </div>
+                <div class="six columns header search-block">
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+<div class="row">
+    <div class="nine columns main-content" id="mbed-content">
+        
+
+
+
+
+
+
+
+<div class="content-actions"></div>
+
+
+
+
+<div class="code-header">
+    
+        <a href="https://os.mbed.com/users/hudakz/">
+            
+                <img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/7c39a5f991bef4a1e34187677a65871d.jpg" width="50" height="38">
+
+            Zoltan Hudak
+        </a>
+    
+    / <a class="repo-link" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/">
+    
+        <span class="repo-meta-os-version">OS 2</span>
+    
+    
+        <i title="This repository is a program" class="fas icon_program" aria-hidden="true"></i>
+    
+
+    STM32F103C8T6_Hello
+</a>
+
+    
+        <span class="featured"><i class="fas icon_tick" aria-hidden="true"></i> Featured</span>
+    
+</div>
+
+
+    <br>
+    <p>Using low cost Blue Pill (STM32F103C8T6) boards with mbed.</p>
+
+
+
+    <p>
+    <b>
+        
+            <a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/dependencies">
+                <i class="fas fa-sitemap fa-flip-vertical" aria-hidden="true"></i> Dependencies:
+            </a> &nbsp;
+        
+    </b>
+    
+        <a href="https://os.mbed.com/users/mbed_official/code/mbed/">
+            <i class="fas icon_library" aria-hidden="true"></i>
+            mbed
+        </a>
+    
+    </p>
+
+
+
+    <p>
+    <b>
+        
+            <a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/dependents">
+                <i class="fas fa-sitemap" aria-hidden="true"></i> Dependents:
+            </a> &nbsp;
+        
+    </b>
+
+    
+        <a href="https://os.mbed.com/teams/Que-elegancia-la-de-Francia/code/STM32F103C8T6_Chicharronera_4CV2/">
+            
+                <i title="This repository is a program" class="fas icon_program" aria-hidden="true"></i>
+            
+            STM32F103C8T6_Chicharronera_4CV2
+        </a>
+    
+        <a href="https://os.mbed.com/teams/Que-elegancia-la-de-Francia/code/STM32F103C8T6_Portada/">
+            
+                <i title="This repository is a program" class="fas icon_program" aria-hidden="true"></i>
+            
+            STM32F103C8T6_Portada
+        </a>
+    
+
+    
+    </p>
+
+
+
+
+
+   
+
+<div class="page-header">
+        <ul id="tabmenu">
+
+
+            <li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/" class="active">
+              Home</a></li>
+
+
+            <li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/shortlog">
+              History</a></li>
+
+
+            <li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/graph">
+             Graph</a></li>
+
+
+            <li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/docs/">
+              API Documentation</a></li>
+
+
+            <li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/wiki/">
+              Wiki</a></li>
+
+
+
+    
+                <li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/pull-requests/">
+                  Pull Requests</a></li>
+    
+
+
+
+
+
+        </ul>
+    </div>
+
+
+
+<h1>STM32F103C8T6 board, alias Blue Pill</h1>
+<p>It provides an affordable (about $2 on eBay) and flexible way for 
+users to try out new ideas and build prototypes. The board is equipped 
+with an <a href="http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32f1-series/stm32f103/stm32f103c8.html" rel="nofollow">STM32F103C8T6</a> microcontroller compatible with the <a href="https://developer.mbed.org/platforms/ST-Nucleo-F103RB/">NUCLEO-F103RB</a> platform. </p>
+<h2>Microcontroller features</h2>
+<ul><li>STM32F103C8T6 in LQFP48 package 
+</li><li>ARM®32-bit Cortex®-M3 CPU 
+</li><li>72 MHz max CPU frequency 
+</li><li>VDD from 2.0 V to 3.6 V 
+</li><li>64 KB Flash 
+</li><li>20 KB SRAM 
+</li><li>GPIO (32) with external interrupt capability 
+</li><li>12-bit ADC (2) with 10 channels 
+</li><li>RTC 
+</li><li>Timers (4) 
+</li><li>I2C (2) 
+</li><li>USART (3) 
+</li><li>SPI (2) 
+</li><li>USB 2.0 full-speed 
+</li><li>CAN 
+</li></ul>
+<h2>Board features</h2>
+<ul><li>Small foot-print
+</li><li>Flexible board power supply: USB VBUS or external source (3.3V, 5V) 
+</li><li>User LED: LED1 
+</li><li>One push button: RESET 
+</li><li>Programming/Debug port 
+</li><li>Micro-B USB connector
+<br>
+<br>
+</li></ul>
+<h2>Board pinout</h2>
+<p><a href="https://os.mbed.com/media/uploads/hudakz/stm32f103c8t6_pinout_voltage01.png">Zoom in</a><br>
+<img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f103c8t6_pinout_voltage01.png" alt="/media/uploads/hudakz/stm32f103c8t6_pinout_voltage01.png" title="" style=""> 
+<br>
+<br>
+Maximum allowed I/O voltage levels (next to pin names) are courtesy of <a href="https://developer.mbed.org/users/Thorsten/">Thor Sten</a> to help you avoid board damage. For more details on pin definitions see Table 5 in the <a href="http://www.st.com/content/ccc/resource/technical/document/datasheet/33/d4/6f/1d/df/0b/4c/6d/CD00161566.pdf/files/CD00161566.pdf/jcr:content/translations/en.CD00161566.pdf" rel="nofollow">Datasheet</a>.
+<br>
+<br></p>
+<div class="flashbox finfo"><h4 class="ftitle">Information</h4><p>Only the labels printed in <strong>blue/white</strong> or <strong>green/white</strong>
+ (i.e. PC_13, PB_9, A0, D14 ...) must be used in your code. The other 
+labels are given as information (alternate-functions, power pins, ...). 
+You can also use these additional pin names:</p>
+<div class="flashbox fcode"><h4 class="ftitle"> </h4><pre class="mbed-code" offset="0"><table class="codify_table" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="codify_numcol"><div class="codify_numbers">1<br>2<br>3<br>4<br></div></td><td class="codify_screen"><pre>LED1=PC_13&nbsp;&nbsp;SERIAL_TX=PA_2&nbsp;&nbsp;I2C_SCL=PB_8&nbsp;&nbsp;SPI_MOSI=PA_7&nbsp;&nbsp;PWM_OUT=PB_3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SERIAL_RX=PA_3&nbsp;&nbsp;I2C_SDA=PB_9&nbsp;&nbsp;SPI_MISO=PA_6
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPI_SCK&nbsp;=PA_5
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPI_CS&nbsp;&nbsp;=PB_6
+</pre></td></tr></tbody></table></pre></div><p>Please notice that in 
+order to fit the small size board, the leading 'P' and the '_' 
+characters are omitted from labels indicated on the board (e.g. Instead 
+of 'PA_1' you can find the label 'A1' on the board). Arduino 
+(green/white) and the additional naming labels are not indicated on the 
+board.
+<br>
+Also notice that the on-board LED is connected to pin PC_13 and, via a resistor, to +3.3V. So to turn the LED <code>on</code> or <code>off</code> you have to set the DigitalOut to <code>0</code> or <code>1</code> respectively.</p>
+</div><h2>Schematic</h2>
+<p><a href="https://os.mbed.com/media/uploads/hudakz/stm32f103c8t6_schematic.png">Zoom in</a>
+<img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f103c8t6_schematic.png" alt="/media/uploads/hudakz/stm32f103c8t6_schematic.png" title="/media/uploads/hudakz/stm32f103c8t6_schematic.png">
+<br>
+<br></p>
+<h2>Eagle library</h2>
+<table><tbody><tr><th>Schematic</th><th>Board</th></tr>
+<tr><td><img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f106c8t6_module_eagle_sch.png" alt="/media/uploads/hudakz/stm32f106c8t6_module_eagle_sch.png" title="/media/uploads/hudakz/stm32f106c8t6_module_eagle_sch.png"></td><td><img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f106c8t6_module_eagle_brd.png" alt="/media/uploads/hudakz/stm32f106c8t6_module_eagle_brd.png" title="/media/uploads/hudakz/stm32f106c8t6_module_eagle_brd.png"></td></tr>
+</tbody></table>
+<p>Because neither <code>lbr</code> nor <code>zip</code> files can be uploaded to mbed wiki pages anymore to download the  <a href="https://os.mbed.com/media/uploads/hudakz/stm32f103c8t6_module.png">eagle library</a> right-click on the link and select <code>Save link as...</code>. Once saved to your local drive, change the extension from <code>png</code> to <code>lbr</code>.
+<br>
+<br></p>
+<h2>Using the mbed online compiler to build programs for the STM32F103C8T6 board</h2>
+<p>Create a program as if it was for a NUCLEO-F103RB board (select NUCLEO-F103RB as target platform for the online compiler).<br> 
+Or click <a href="https://developer.mbed.org/compiler/#import:/users/hudakz/code/STM32F103C8T6_Hello/">here</a> to import this demo into your online compiler.</p>
+<div class="flashbox fcode"><h4 class="ftitle">Blinking on-board LED:</h4><pre class="mbed-code" offset="0"><table class="codify_table" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="codify_numcol"><div class="codify_numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></div></td><td class="codify_screen"><pre><span class="SH_BUILTIN">#include&nbsp;</span><span class="SH_STRING">"mbed.h"</span>
+&nbsp;
+Serial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pc(PA_2,&nbsp;PA_3);&nbsp;<span class="SH_COMMENT">//&nbsp;TX,&nbsp;RX</span>
+DigitalOut&nbsp;&nbsp;myled(PC_13);&nbsp;&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;on-board&nbsp;LED</span>
+&nbsp;&nbsp;
+<span class="SH_RESERVED">int</span>&nbsp;main()&nbsp;
+{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_RESERVED">while</span>(<span class="SH_NUMBER">1</span>)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;The&nbsp;on-board&nbsp;LED&nbsp;is&nbsp;connected&nbsp;via&nbsp;a&nbsp;resistor&nbsp;to&nbsp;+3.3V&nbsp;(not&nbsp;to&nbsp;GND).&nbsp;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;So&nbsp;the&nbsp;LED&nbsp;is&nbsp;active&nbsp;on&nbsp;0</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myled&nbsp;=&nbsp;<span class="SH_NUMBER">0</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;turn&nbsp;the&nbsp;LED&nbsp;on</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wait_ms(<span class="SH_NUMBER">200</span>);&nbsp;&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;wait&nbsp;200&nbsp;millisecond</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myled&nbsp;=&nbsp;<span class="SH_NUMBER">1</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;turn&nbsp;the&nbsp;LED&nbsp;off</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pc.<span class="SH_STDIO">printf</span>(<span class="SH_STRING">"Blink\r\n"</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wait_ms(<span class="SH_NUMBER">1000</span>);&nbsp;&nbsp;<span class="SH_COMMENT">//&nbsp;wait&nbsp;1000&nbsp;millisecond</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+</pre></td></tr></tbody></table></pre></div><p><br></p>
+<div class="flashbox fwarning"><h4 class="ftitle">Warning</h4><div style="padding: 10px; float:right"><p> <img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f103c8c6_build.png" alt="/media/uploads/hudakz/stm32f103c8c6_build.png" title="/media/uploads/hudakz/stm32f103c8c6_build.png"></p>
+</div><p> <br>
+Keep in mind that the online compiler is checking for 128kB maximum 
+flash size. However, the STM32F103C8T6 is equipped with only 64kB. <strong>Although it seems that majority of Blue Pill boards sold online usually feature 128kB Flash rather than 64kB.</strong> Once the compilation is complete (started by clicking on the <strong>Build only</strong> button in the Compile drop list or by pressing <strong>Ctrl+B</strong>) you can <strong>visually check</strong> the size of used flash memory in the <em>Program details - Build</em> tab. In order to fit into an <em>STM32F103C8T6</em> board <strong>the used Flash should not exceed 64kB</strong> (depending on your actual board). Try to optimize your program until  it's using less than 64kB flash memory. Have a look at <a href="https://developer.mbed.org/users/mega64/code/mbed-STM32F030F4/">mbed-STM32F030F4</a> and <a href="https://developer.mbed.org/questions/72252/mbed-dev-Minimum-application-size-using-/">Andy's hints</a> for some good tips.</p>
+</div><p><br></p>
+<h2>Programming the STM32F103C8T6 board</h2>
+<h4>NUCLEO ST-LINK/V2-1 and drag &amp; drop</h4>
+<p>You can use the NUCLEO virtual disk to program the STM32F103C8T6 
+board (drag and drop programming). To do that, an additional NUCLEO 
+board is needed (any type equipped with ST-LINK/V2-1 will do). </p>
+<ul><li>Remove the two jumpers from the CN2 connector as illustrated in Figure 8:
+ <img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/nucleo_prog.png" alt="/media/uploads/hudakz/nucleo_prog.png" title="/media/uploads/hudakz/nucleo_prog.png"> <br>
+<br>
+</li></ul>
+<table><tbody><tr><td><img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/nucleo_c4.png" alt="/media/uploads/hudakz/nucleo_c4.png" title="/media/uploads/hudakz/nucleo_c4.png"></td><td><img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f103c8t6_debug_con.png" alt="/media/uploads/hudakz/stm32f103c8t6_debug_con.png" title="/media/uploads/hudakz/stm32f103c8t6_debug_con.png"></td></tr>
+</tbody></table>
+<ul><li>Connect the NUCLEO board CN4 connector to the STM32F103C8T6 board using flying wires as follows:
+</li></ul>
+<table><tbody><tr><td></td><th>NUCLEO board<br> CN4 connector</th><td></td><td></td><th>STM32F103C8T6<br> debug connector</th><td></td><td></td><th>STM32F103C8T6<br> board</th></tr>
+<tr><td></td><td>SWCLK</td><td>&lt;=&gt;</td><td></td><td>DCLK</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>GND</td><td>&lt;=&gt;</td><td></td><td>GND</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>SWDIO</td><td>&lt;=&gt;</td><td></td><td>DIO</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>NRST</td><td></td><td></td><td></td><td>&lt;=&gt;</td><td></td><td>RESET</td></tr>
+</tbody></table>
+<div class="flashbox fwarning"><h4 class="ftitle">Warning</h4><p> Please notice that <code>VDD_TARGET</code>
+ is not connected. That works with the ST-Link programmer but could 
+potentially damage the target micro controller in case it's running at a
+ lower voltage (e.g. 2V5) than the programmer (e.g. 3V3). That's why 
+it's recommended to connect also the <code>VDD_TARGET</code> line when an external programmer such as a Segger J-Link is hooked up to program the board.</p>
+</div><ul><li>Provide power for the STM32F103C8T6 board  through a 3.3V 
+pin, 5V pin or over a USB cable. (The VDD_TARGET pin on the NUCLEO board
+ CON4 does not work as source of power).<br>
+<br>
+</li><li>Connect the NUCLEO board to your PC over a USB cable.
+<br>
+<br>
+</li><li>To program the STM32F103C8T6 board, click on the <strong>Compile</strong> button and save the binary to the NUCLEO virtual disk .
+<br>
+For more details have a look at the <a href="http://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf" rel="nofollow">User Manual</a>, chapter
+6.2.4 <em>Using ST-LINK/V2-1 to program and debug an external STM32 application.
+<br>
+<br></em>
+</li></ul>
+<h4>ST-Link V2 USB dongle and STM32 ST-LINK utility</h4>
+<p>If you would like to use an ST-Link V2 USB dongle (aka ST-Link V2 
+Programming Unit) to program the board apply the same wiring as 
+specified above. If not done yet install an <a href="https://os.mbed.com/teams/ST/wiki/ST-Link-Driver" rel="nofollow">ST-Link/V2 driver</a> onto your PC. Plug the ST-Link V2 dongle into your PC. Then click on the <code>Compile</code> button and save the binary to your local disk. Install and run the <a href="http://www.st.com/en/development-tools/stsw-link004.html" rel="nofollow">STM32 ST-LINK utility</a>. Once the program is running open the binary built with the online compiler and click on the <code>Program verify</code> button.<br>
+<br>
+ <img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/st-link_dongle.jpg" alt="/media/uploads/hudakz/st-link_dongle.jpg" title="/media/uploads/hudakz/st-link_dongle.jpg"> 
+<br>
+<br></p>
+<h4>STM32 USART system memory bootloader and Flasher-STM32</h4>
+<p>Have a look at <a href="https://scienceprog.com/flashing-programs-to-stm32-embedded-bootloader/" rel="nofollow">STM32 Embedded Bootloader</a>.</p>
+<p>Download: <a href="http://www.st.com/en/development-tools/flasher-stm32.html" rel="nofollow">FLASHER-STM32</a><br>
+For more details read: 
+<a href="http://www.st.com/content/ccc/resource/technical/document/application_note/b9/9b/16/3a/12/1e/40/0c/CD00167594.pdf/files/CD00167594.pdf/jcr:content/translations/en.CD00167594.pdf" rel="nofollow">Appliction Note AN2606</a>.</p>
+<h2>Using serial port (not just for debugging)</h2>
+<ul><li>Connect an FTDI or similar USB to Serial TTL converter to your 
+PC and to an on-board serial port (for example PA_2, PA_3). Make sure 
+you connect the on-board TX pin to the converter's RX pin and the 
+on-board RX pin to the converter's TX pin.
+</li></ul>
+<p><img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/stm32f103c8t6_hookup.jpg" alt="/media/uploads/hudakz/stm32f103c8t6_hookup.jpg" title="/media/uploads/hudakz/stm32f103c8t6_hookup.jpg">   
+<a href="https://os.mbed.com/media/uploads/hudakz/stm32f103c8t6_hookup.jpg">Zoom in</a></p>
+<ul><li>In your code, create a <code>Serial</code> object (using TX and RX pin names of the connected serial port).
+</li></ul>
+<ul><li>Use <code>printf</code> function to send serial messages to the connected PC.
+<br>
+<br>
+</li></ul>
+<div class="flashbox finfo"><h4 class="ftitle">Sending debug messages over the ST-Link virtual com port</h4><p>In
+ case you would like to spare the external USB-Serial converter for 
+other purposes then there is available an alternative solution proposed 
+by <a href="https://developer.mbed.org/users/bitman/">X M (bitman)</a>. 
+You can use the ST-Link virtual com port also for debugging of programs 
+running on the STM32F103C8T6 board. However, that will require a 
+soldering iron (and probably some soldering skills). According to the <a href="http://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf" rel="nofollow">User Manual</a>,
+ chapter
+6.8 "USART communication", solder bridges (on the back side of the 
+NUCLEO board) SB62 and SB63 should be ON, SB13 and SB14 should be OFF. 
+In such case it is possible to connect another USART to the NUCLEO 
+(ST-Link) CN3 connector using flying wires. For instance on 
+STM32F103C8T6 board it is possible to use USART2 available on PA_2 (TX) 
+and PA_3 (RX). Two flying wires shall be connected as follows:</p>
+<table><tbody><tr><td>STM32F103C8T6 board, pin PA_2 (Serial2 TX)</td><td>&lt;=&gt;</td><td>NUCLEO board CN3 connector, pin RX</td></tr>
+<tr><td>STM32F103C8T6 board, pin PA_3 (Serial2 RX)</td><td>&lt;=&gt;</td><td>NUCLEO board CN3 connector, pin TX</td></tr>
+</tbody></table>
+<p><strong>A smart trick proposed by <a href="https://developer.mbed.org/users/mega64/">Nothing Special</a> makes even soldering needless.</strong><br>
+The point is to redirect the UART on the NUCLEO board by software 
+(without modifying the solder bridges on the back side of the NUCLEO 
+board) and convert it into a "Debugger". On the NUCLEO board that you 
+are going to use as programmer/ debugger, choose any Serial port other 
+than Serial2 (other than the default port used for standard UART) to be 
+initialized as standard UART. In the program below (using NUCLEO-F103RB 
+as programmer/debugger) Serial1 (PA_9, PA_10) was selected. </p>
+<div class="flashbox fcode"><h4 class="ftitle">Debugger</h4><pre class="mbed-code" offset="0"><table class="codify_table" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="codify_numcol"><div class="codify_numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></div></td><td class="codify_screen"><pre><span class="SH_BUILTIN">#include&nbsp;</span><span class="SH_STRING">"mbed.h"</span>&nbsp;
+&nbsp;
+<span class="SH_COMMENT">//&nbsp;declarations&nbsp;needed&nbsp;to&nbsp;change&nbsp;the&nbsp;parameters&nbsp;of&nbsp;stdio&nbsp;UART&nbsp;</span>
+<span class="SH_RESERVED">extern</span>&nbsp;serial_t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stdio_uart;&nbsp;
+<span class="SH_RESERVED">extern</span>&nbsp;<span class="SH_RESERVED">int</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stdio_uart_inited;&nbsp;
+&nbsp;
+<span class="SH_RESERVED">int</span>&nbsp;main()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;serial_init(&amp;stdio_uart,&nbsp;PA_9,&nbsp;PA_10);&nbsp;<span class="SH_COMMENT">//&nbsp;other&nbsp;than&nbsp;Serial2</span>
+&nbsp;&nbsp;&nbsp;&nbsp;stdio_uart_inited&nbsp;=&nbsp;<span class="SH_NUMBER">1</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_STDIO">printf</span>(<span class="SH_STRING">"Ready&nbsp;for&nbsp;debugging\r\n"</span>);
+}
+</pre></td></tr></tbody></table></pre></div><p><br>
+Once compiled (remember to select the NUCLEO board used for 
+programing/debugging as target for the online compiler), download the 
+"Debugger" program to the NUCLEO board. Please make sure you have the 
+two jumpers in place on the CN2 connector when programming the NUCLEO 
+board. Once the "Debugger" binary has been downloaded to the NUCLEO 
+board, remove the two jumpers again.</p>
+</div><h2>Additional examples</h2>
+<ul><li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_AnalogIn/" rel="nofollow">Reading analog input</a>
+</li><li><a href="https://developer.mbed.org/users/hudakz/code/STM32F103C8T6_DS1820/">DS1820 temperature sensor</a>
+</li><li><a href="https://developer.mbed.org/users/hudakz/code/STM32F103C8T6_TextLCD/">Driving Text LCD</a>
+</li><li><a href="https://developer.mbed.org/users/hudakz/code/STM32F103C8T6_Nokia5110//">Driving Nokia 5110 LCD</a>
+</li><li><a href="https://developer.mbed.org/users/hudakz/code/STM32F103C8T6_ILI9341/">Driving ILI9341 TFT Display</a>
+</li><li><a href="https://developer.mbed.org/users/hudakz/code/STM32F103C8T6_USBSerial/">A USB serial device</a>
+</li><li><a href="https://os.mbed.com/users/hudakz/code/CAN_Hello/" rel="nofollow">CAN bus with mbed boards</a>
+</li><li><a href="https://os.mbed.com/users/hudakz/code/WebSwitch_ENC28J60/" rel="nofollow">Tiny HTTP server with ENC28J60 Ethernet module</a>
+</li><li><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_SDCard/" rel="nofollow">Using SD Card</a>
+</li></ul>
+<h2>Working offline</h2>
+<ul><li>The <a href="https://os.mbed.com/blog/entry/Mbed-Studio-Public-Beta/" rel="nofollow">Mbed Studio</a>
+ IDE is a great tool for working offline. It supports Mbed OS 5 (with 
+built-in Mbed RTOS threads, mutexes, semafores ...) and also Mbed OS 5 <a href="https://os.mbed.com/docs/mbed-os/v5.13/reference/mbed-os-bare-metal.html" rel="nofollow">Bare metal profile</a>
+ (no RTOS, similar to Mbed OS 2) which is suitable for small or medium 
+size projects requiring less RAM and Flash. To use it, add a <code>mbed_app.json</code> configuration file to your project:
+</li></ul>
+<div class="flashbox fcode"><h4 class="ftitle">med_app.json</h4><pre class="mbed-code" offset="0"><table class="codify_table" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="codify_numcol"><div class="codify_numbers">1<br>2<br>3<br></div></td><td class="codify_screen"><pre>{
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_STRING">"requires"</span>:&nbsp;[<span class="SH_STRING">"bare-metal"</span>]
+}
+</pre></td></tr></tbody></table></pre></div><ul><li>Another alternative is to stay with <strong>Mbed 2</strong> (aka Mbed classic) and use the <a href="https://os.mbed.com/users/hudakz/notebook/building-offline-with-qt-creator/" rel="nofollow">QtCreator IDE</a> for building offline. <br>
+</li></ul>
+<p><img src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/qtcreator_demo.png" alt="/media/uploads/hudakz/qtcreator_demo.png" title="/media/uploads/hudakz/qtcreator_demo.png"></p>
+<p>Works great on Linux (Ubuntu) and MS Windows. It's fully integrated with <a href="https://os.mbed.com/docs/mbed-os/v5.11/tools/developing-mbed-cli.html" rel="nofollow">Mbed CLI</a> and supprots all the Mbed enabled targets. To build for the Blue Pill you can select <code>BLUEPILL_F103C8</code> or <code>NUCLEO_F103RB</code>
+ as your target, depending on the Flash size actually available on your 
+Blue Pill board. To reduce the size of used static RAM and Flash try to 
+select the <code>small</code> library for your project rather than the <code>standard</code> one. That can be achieved by modifying the <code>mbed_app.json</code> file (Ctrl+O) as below:</p>
+<div class="flashbox fcode"><h4 class="ftitle">med_app.json</h4><pre class="mbed-code" offset="0"><table class="codify_table" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="codify_numcol"><div class="codify_numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br></div></td><td class="codify_screen"><pre>{
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_STRING">"target_overrides"</span>:&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_STRING">"*"</span>:&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="SH_STRING">"target.default_lib"</span>:&nbsp;<span class="SH_STRING">"small"</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+</pre></td></tr></tbody></table></pre></div><p>For more details visit  <a href="https://os.mbed.com/users/hudakz/notebook/building-offline-with-qt-creator/" rel="nofollow">Building offline with QtCreator IDE</a>.</p>
+<p>Happy coding :-)</p>
+
+
+
+
+
+
+<div id="container">
+        <div style="float: right;">
+                Download repository: <a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//archive/485613003845.zip"> <i class="fa fa-file-archive-o" aria-hidden="true"></i> zip</a><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//archive/485613003845.tar.gz"> <i class="fa fa-file-archive-o" aria-hidden="true"></i> gz</a>
+        </div>
+    <div class="module">
+
+        <h2>Files at revision 13:485613003845</h2>
+        <div class="breadcrumbs">/ <span class="logtags" style="color:#000000"><span class="branchtag" title="default">default</span> <span class="tagtag" title="tip">tip</span> </span></div>
+        <table class="styledtable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th width="60px">Size</th>
+
+            <th width="200px">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="row0">
+            <td><b><a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//file/485613003845/"><i class="fa icon_page_up" aria-hidden="true"></i>  [up]</a></b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        
+<tr class="row1">
+<td>
+<a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//file/485613003845/main.cpp"><i class="fa fa-file-code-o" aria-hidden="true"></i> main.cpp</a>
+</td>
+<td>493</td>
+<td>
+<a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//log/485613003845/main.cpp"><i class="fa fa-history" aria-hidden="true"></i> Revisions</a>
+<a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//annotate/485613003845/main.cpp"><i class="fa fa-pencil" aria-hidden="true"></i> Annotate</a>
+</td>
+</tr>
+<tr class="row0">
+<td>
+<a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//file/485613003845/mbed.bld"><i class="fa fa-file-code-o" aria-hidden="true"></i> mbed.bld</a>
+</td>
+<td>69</td>
+<td>
+<a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//log/485613003845/mbed.bld"><i class="fa fa-history" aria-hidden="true"></i> Revisions</a>
+<a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello//annotate/485613003845/mbed.bld"><i class="fa fa-pencil" aria-hidden="true"></i> Annotate</a>
+</td>
+</tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+            
+
+
+
+    </div>
+
+    <div class="three columns sidebar ">
+        
+
+
+
+
+
+
+
+
+<div class="panel">
+    <h5 class="subheader">Repository toolbox</h5>
+    <table id="repo_actions">
+        <tbody><tr>
+            <td>
+                <div id="import-button" class="import-button"><a class="import-button-a" id="import-button-action" href="https://os.mbed.com/ide/import-program//users/hudakz/code/STM32F103C8T6_Hello/" target="_blank">Import into Compiler</a><div class="import-button-toggle"></div><div id="dropdown-content" style="display: none;"></div></div>
+
+<script type="text/javascript">
+  new ImportButton($("#import-button"), {
+    last_used_action: {
+        type: "compiler"
+    },
+    compiler_import_url: "https://os.mbed.com/ide/import-program//users/hudakz/code/STM32F103C8T6_Hello/",
+    clone_url: "http://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/",
+    is_library: false,
+    cli_enabled: true
+  });
+</script>
+
+            </td>
+        </tr>
+        <tr>
+        	<td>
+    	    	<a style="width: 100%;" class="button secondary small expand" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/export">
+    	    		<span>
+    	    			<i class="fas fa-cloud-download" aria-hidden="true"></i>
+    	    			Export to desktop IDE
+    	    		</span>
+    	    	</a>
+        	</td>
+        </tr>
+
+        
+        <tr>
+        	<td>
+        		<a style="width: 100%;" class="button secondary small expand" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/compile">
+        			<span><i class="fas icon_go" aria-hidden="true"></i>
+        				Build repository
+        			</span>
+        		</a>
+        	</td>
+        </tr>
+        
+
+        
+
+        
+
+        
+
+        
+
+    </tbody></table>
+</div>
+
+
+<div class="panel">
+    <h5 class="subheader">Repository details</h5>
+
+    <table>
+        
+        <tbody><tr>
+            <th>Type:</th>
+            <td>
+                <i class="fas icon_program" aria-hidden="true"></i>
+                Program
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Version:</th>
+            <td>
+                Mbed OS 2
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <th>Created:</th>
+            <td><abbr class="timeago" title="02 Jul 2016">02 Jul 2016</abbr></td>
+        </tr>
+        <tr>
+            <th>Imports:</th>
+            <td>
+                <a title="Number of times this repository has been imported" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/">
+                    <i class="fas icon_imports" aria-hidden="true"></i>
+                    3000
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th>Forks:</th>
+            <td>
+                <a title="Copies of this repository" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/forks">
+                    <i class="fas icon_repo_fork" aria-hidden="true"></i>
+                    7
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th width="40%">Commits:</th>
+            <td>
+                <a href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/shortlog">
+                    <i class="fas icon_commits" aria-hidden="true"></i>
+                    14
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th>Dependents:</th>
+            <td>
+                <a title="Programs or libraries which need this repository" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/dependents">
+                    <i class="fas icon_repo_depens" aria-hidden="true"></i>
+                    2
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th>Dependencies:</th>
+            <td>
+                <a title="Libraries which this program or library needs to function" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/dependencies">
+                    <i class="fas icon_repo_deps fa-flip-vertical" aria-hidden="true"></i>
+                    1
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th>Followers:</th>
+            <td>
+                <a title="Followers of this repository" href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/followers">
+                    <i class="fas icon_add" aria-hidden="true"></i>
+                    147
+                </a>
+            </td>
+        </tr>
+        
+    </tbody></table>
+
+    
+
+</div>
+
+
+
+
+
+
+
+
+<div class="panel">
+    
+</div>
+
+
+
+
+
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            mbed.initDismissableBanners($('[data-dismissable]'));
+        });
+    </script>
+
+    
+
+<footer class="global-footer">
+    <ul class="global-footer-media global-footer-row">
+        <li>
+            <a class="footer-media-icon" title="Linkedin" href="https://www.linkedin.com/groups/mbed-2667234">
+                <span class="fab fa-linkedin fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Linkedin</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Twitter" href="http://twitter.com/armmbed">
+                <span class="fab fa-twitter-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Twitter</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Facebook" href="http://facebook.com/armmbed">
+                <span class="fab fa-facebook-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Facebook</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="YouTube" href="https://www.youtube.com/channel/UCNcxd73dSceKtU77XWMOg8A">
+                <span class="fab fa-youtube-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">YouTube</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Events" href="https://www.mbed.com/about-mbed/events/">
+                <span class="fas fa-calendar-alt fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Events</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Forum" href="http://forums.mbed.com/">
+                <span class="fas fa-comments fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Forum</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Blog" href="http://blog.mbed.com/">
+                <span class="fas fa-pen-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Blog</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="global-footer-copyright global-footer-row">
+        <div class="copyright-statement">Copyright © <script>document.write(new Date().getFullYear());</script>2020 Arm Limited (or its affiliates).</div>
+        <ul class="copyright-links">
+            <li><a href="https://www.mbed.com/">Home</a></li>
+            <li><a href="https://os.mbed.com/research-opportunities/">UX Research</a></li>
+            <li><a href="https://www.mbed.com/about-mbed/terms-use/">Website Terms</a></li>
+            <li><a href="https://cloud.mbed.com/terms">Pelion Device Management Terms</a></li>
+            <li><a href="https://www.mbed.com/about-mbed/privacy/">Privacy</a></li>
+            <li><a href="https://www.mbed.com/about-mbed/cookie-policy/">Cookies</a></li>
+            <li><a href="http://www.arm.com/company/policies/trademarks">Trademarks</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+    <div id="cookiemodule" style="display: none;">
+    <h5>Important Information for this Arm website</h5>
+    <div id="cookiecontent">
+        <p>
+            This site uses cookies to store information on your computer.
+            By continuing to use our site, you consent to our cookies.
+            If you are not happy with the use of these cookies, please review our
+            <a href="https://www.arm.com/company/policies/cookies">Cookie Policy</a>
+            to learn how they can be disabled.
+            By disabling cookies, some features of the site will not work.
+        </p>
+        <button id="acceptcookie">Accept and hide this message</button>
+    </div>
+</div>
+<script src="STM32F103C8T6_Hello%20-%20Using%20low%20cost%20Blue%20Pill%20(STM32F103C8T6)%20boards...%20|%20Mbed_files/cookie_law.js"></script>
+
+
+
+<div id="access-warning-modal" class="reveal-modal">
+    <h2>Access Warning</h2>
+    <p>You do not have the correct permissions to perform this operation. Please, contact us at support@mbed.com to gain full access.</p>
+    <a class="close-reveal-modal">×</a>
+</div>
+
+
+
+
+
+</body><div style="padding: 0px; margin: 3px 3px 20px; background: rgb(248, 248, 255) none repeat scroll 0% 0% padding-box; border: 3px solid rgba(242, 242, 242, 0.6); border-radius: 2px; box-shadow: rgb(102, 102, 102) 0px 0px 2px; visibility: visible; display: none; z-index: 2147483647; position: fixed !important; box-sizing: content-box !important; inset: 471px auto auto 0px; width: 0px; height: 0px; max-width: none !important; max-height: none !important;"><img alt="" style="display: block; visibility: inherit !important; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; position: relative; width: 100%; height: 100%; max-width: inherit; max-height: inherit; margin: 0px; padding: 0px; border: 0px none; image-orientation: initial !important;"><video autoplay="autoplay" style="display: none; visibility: inherit !important; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; position: relative; width: 100%; height: 100%; max-width: inherit; max-height: inherit; margin: 0px; padding: 0px; border: 0px none; box-shadow: rgb(241, 101, 41) 0px 0px 0px 1px;"></video><div style="left: 0px; right: auto; display: none; cursor: default; position: absolute; width: auto; height: auto; border: 0px none; white-space: nowrap; font: 13px / 1.4em &quot;Trebuchet MS&quot;, sans-serif; background: rgba(0, 0, 0, 0.75) none repeat scroll 0% 0% !important; color: rgb(255, 255, 255) !important; box-shadow: rgb(221, 221, 221) 0px 0px 1px inset; padding: 0px 4px; border-radius: 3px; top: -18px;"><b style="display: none; transition: background-color 0.1s ease 0s; border-radius: 3px; padding: 0px 2px;"></b> <b style="display: none;"></b> <span style="color: inherit; display: inline;">/media/uploads/hudakz/stm32f103c8t6_pinout_voltage01.png</span></div></div><img alt="" draggable="false" style="padding: 5px; border-radius: 50% !important; box-shadow: rgb(166, 166, 166) 0px 0px 5px 1px !important; background-clip: padding-box; width: 38px; height: 38px; position: fixed !important; z-index: 2147483647; display: none; inset: auto; margin: 0px; box-sizing: border-box !important; transition: background-color 0.5s ease 0s, opacity 0.2s ease 0s, top 0.15s ease-out 0s, left 0.15s ease-out 0s; opacity: 0;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOng9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBub25lIj48Zz48cGF0aCBpZD0icCIgZD0iTTMzIDQyYTEgMSAwIDAgMSA1NS0yMCAzNiAzNiAwIDAgMC01NSAyMCIvPjx1c2UgeDpocmVmPSIjcCIgdHJhbnNmb3JtPSJyb3RhdGUoNzIgNTAgNTApIi8+PHVzZSB4OmhyZWY9IiNwIiB0cmFuc2Zvcm09InJvdGF0ZSgxNDQgNTAgNTApIi8+PHVzZSB4OmhyZWY9IiNwIiB0cmFuc2Zvcm09InJvdGF0ZSgyMTYgNTAgNTApIi8+PHVzZSB4OmhyZWY9IiNwIiB0cmFuc2Zvcm09InJvdGF0ZSgyODggNTAgNTApIi8+PGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHZhbHVlcz0iMzYwIDUwIDUwOzAgNTAgNTAiIGR1cj0iMS44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2c+PC9zdmc+"></html>
